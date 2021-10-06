@@ -21,7 +21,7 @@ def build_graphic(sorting_algs, experiment):
     for sorting_alg in sorting_algs:
         sorting_algs_table[sorting_alg] = [[], []]
 
-    for power in range(7, 12, 2):
+    for power in range(7, 16, 2):
         size = 2 ** power
         sorting_algs_copy = copy.deepcopy(sorting_algs)
         sorting_algs_results = experiment(size, sorting_algs=sorting_algs_copy)
@@ -33,22 +33,22 @@ def build_graphic(sorting_algs, experiment):
     for sorting_alg in sorting_algs_table:
         x1 = sorting_algs_table[sorting_alg][0]
         y1 = sorting_algs_table[sorting_alg][1]
-        # plotting the line 1 points
+
         plt.plot(x1, y1, label = f"{sorting_alg}")
         
 
     plt.yscale('log')
-    # naming the x axis
+
     plt.xlabel('x - axis')
-    # naming the y axis
+
     plt.ylabel('y - axis')
-    # giving a title to my graph
+
     plt.title(f'{experiment}')
     
-    # show a legend on the plot
+
     plt.legend()
     
-    # function to show the plot
+
     plt.show()
 
     return sorting_algs_table
@@ -85,4 +85,4 @@ def main(sorting_algs = \
 
 
 if __name__ == "__main__":
-    print(main())
+    main()
